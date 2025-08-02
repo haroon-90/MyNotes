@@ -75,7 +75,7 @@ const AllNotes = () => {
                                 </div>
                             </div>
 
-                            <div className="flex-shrink-0 mt-4 md:mt-0 flex md:flex-col justify-between gap-3">
+                            <div className=" mt-4 md:mt-0 flex md:flex-col justify-between gap-3">
                                 <div
                                     onClick={() => handleEdit(note)}
                                    title='Edit'

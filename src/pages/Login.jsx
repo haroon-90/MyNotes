@@ -29,6 +29,7 @@ const Login = () => {
                 navigate('/');
             }, 1000);
         } catch (err) {
+            setLoading(false);
             alert(err.response?.data?.msg || 'Login failed')
         }
     }

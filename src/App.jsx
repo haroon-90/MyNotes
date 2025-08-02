@@ -12,7 +12,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-200 via-purple-100 to-blue-200 p-6 md:p-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-300 via-purple-300 to-blue-300 p-6 md:p-12">
       <div className="relative max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl px-8 py-10 sm:px-10 sm:py-12">
 
         <button

@@ -59,7 +59,7 @@ const AddNotes = ({ editNote, getNotes }) => {
           <input
             type="text"
             placeholder="Enter note title"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
             value={title}
             required
             onChange={(e) => setTitle(e.target.value)}
@@ -72,7 +72,7 @@ const AddNotes = ({ editNote, getNotes }) => {
           <textarea
             rows={6}
             placeholder="Write your note here..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
             value={content}
             required
             onChange={(e) => setContent(e.target.value)}
@@ -83,7 +83,7 @@ const AddNotes = ({ editNote, getNotes }) => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="flex gap-2 cursor-pointer items-center bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-full transition duration-200"
+            className="flex gap-2 cursor-pointer items-center bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-full transition duration-200"
           >
             <Save className='h-7 text-white' />{editNote ? 'Update Note' : 'Add Note'}
           </button>
