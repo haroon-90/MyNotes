@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddNotes from './AddNotes';
+import { Edit2, Trash2 } from 'lucide-react';
 
 const AllNotes = () => {
     const [notes, setNotes] = useState([]);
@@ -47,7 +48,7 @@ const AllNotes = () => {
 
     return (
         <div className="bg-gray-50 min-h-screen p-6 sm:p-10 rounded-2xl shadow-inner">
-            <h1 className="text-4xl font-bold text-center text-blue-800 mb-10 tracking-tight">
+            <h1 className="text-4xl font-bold text-center text-purple-800 mb-10 tracking-tight">
                 Notes List
             </h1>
 
@@ -74,19 +75,21 @@ const AllNotes = () => {
                                 </div>
                             </div>
 
-                            <div className="flex-shrink-0 mt-4 md:mt-0 flex gap-3">
-                                <button
+                            <div className="flex-shrink-0 mt-4 md:mt-0 flex md:flex-col justify-between gap-3">
+                                <div
                                     onClick={() => handleEdit(note)}
-                                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition"
+                                   title='Edit'
+                                    className="bg-blue-600 hover:bg-blue-700 text-white p-2 cursor-pointer rounded-full text-sm transition"
                                 >
-                                    Edit
-                                </button>
-                                <button
+                                    <Edit2 className="h-5 text-white"/>
+                                </div>
+                                <div
                                     onClick={() => handleDelete(note._id)}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm transition"
+                                    title='Delete'
+                                    className="bg-red-500 hover:bg-red-600 text-white p-2 cursor-pointer rounded-full text-sm transition"
                                 >
-                                    Delete
-                                </button>
+                                    <Trash2 className="h-5 text-white"/>
+                                </div>
                             </div>
                         </div>
                     ))}
