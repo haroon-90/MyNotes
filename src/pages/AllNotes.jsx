@@ -46,26 +46,47 @@ const AllNotes = () => {
 
 
     return (
-        <div className="bg-gray-100 p-6 rounded-xl">
-            <h1 className="text-2xl font-bold mb-6 text-center text-blue-800">All Notes</h1>
+        <div className="bg-gray-50 min-h-screen p-6 sm:p-10 rounded-2xl shadow-inner">
+            <h1 className="text-4xl font-bold text-center text-blue-800 mb-10 tracking-tight">
+                Notes List
+            </h1>
 
-            <AddNotes editNote={editNote} getNotes={getNotes}/>
+            {/* Add/Edit Form */}
+            <AddNotes editNote={editNote} getNotes={getNotes} />
 
             {notes === undefined || notes.length === 0 ? (
-                <p className="text-center text-gray-500">No notes found.</p>
+                <p className="text-center text-gray-500 mt-12 text-lg">
+                    No notes yet. Start adding your ideas.
+                </p>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
+                <div className="space-y-6 mt-8">
                     {notes.map((note) => (
-                        <div key={note._id} className="bg-white flex flex-col justify-between rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
-                            <h2 className="text-xl font-semibold text-blue-700 mb-2">{note.title}</h2>
-                            <p className="text-gray-700">{note.content}</p>
-                            <div className='flex justify-between'>
-                                <p className="text-sm text-gray-400 mt-3">Created on: {new Date(note.createdAt).toLocaleDateString()}</p>
-                                <p className="text-sm text-gray-400 mt-3">Updated on: {new Date(note.updatedAt).toLocaleDateString()}</p>
+                        <div
+                            key={note._id}
+                            className="flex flex-col md:flex-row items-start md:items-center justify-between bg-white px-6 py-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300"
+                        >
+                            <div className="flex-1 md:mr-4">
+                                <h2 className="text-lg font-semibold text-gray-900 mb-1">{note.title}</h2>
+                                <p className="text-gray-700 text-sm mb-2">{note.content}</p>
+                                <div className="text-xs text-gray-400 space-x-3">
+                                    <span>Created: {new Date(note.createdAt).toLocaleDateString()}</span>
+                                    <span>Updated: {new Date(note.updatedAt).toLocaleDateString()}</span>
+                                </div>
                             </div>
-                            <div className='flex justify-between mt-2'>
-                                <button className='px-4 rounded bg-green-500' onClick={() => handleEdit(note)}>Edit</button>
-                                <button className='px-4 rounded bg-red-500' onClick={() => handleDelete(note._id)}>Delete</button>
+
+                            <div className="flex-shrink-0 mt-4 md:mt-0 flex gap-3">
+                                <button
+                                    onClick={() => handleEdit(note)}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(note._id)}
+                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm transition"
+                                >
+                                    Delete
+                                </button>
                             </div>
                         </div>
                     ))}
